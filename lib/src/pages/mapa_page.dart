@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:qrreaderapp/constants.dart';
 import 'package:qrreaderapp/src/models/scan_model.dart';
 
 class MapaPage extends StatefulWidget {
@@ -55,7 +55,8 @@ class _MapaPageState extends State<MapaPage> {
       urlTemplate: 'https://api.mapbox.com/v4/'
       '{id}/{z}/{x}/{y}@2x.png?access_token={accessToken}',
       additionalOptions: {
-        'accessToken': Constants.API_KEY_MAPBOX,
+        // 'accessToken': Constants.API_KEY_MAPBOX,
+        'accessToken' : DotEnv().env['API_KEY_MAPBOX'],
         'id': 'mapbox.$tipoMapa' // streets, dark, light, outdoors, satellite
       }
     );

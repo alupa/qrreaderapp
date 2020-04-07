@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:qrreaderapp/src/pages/home_page.dart';
 import 'package:qrreaderapp/src/pages/mapa_page.dart';
  
-void main() => runApp(MyApp());
+Future main() async{
+  await DotEnv().load('.env');
+  runApp(MyApp());
+  }
  
 class MyApp extends StatelessWidget {
   
